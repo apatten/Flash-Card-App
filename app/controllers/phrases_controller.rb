@@ -1,7 +1,7 @@
 class PhrasesController < ApplicationController
 
   def index
-    @phrases = Phrase.all
+    @phrases = Phrase.order("created_at DESC")
   end
 
   def show

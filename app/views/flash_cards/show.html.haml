@@ -1,0 +1,7 @@
+%p.previous= link_to('Previous', flash_card_path(@previous_phrase), :id => 'previous') unless @previous_phrase.nil?
+
+%dl#flash_card.container
+  %dt= @phrase.translation
+  %dd= @phrase.text
+
+%p.next= link_to('Next', flash_card_path(@next_phrase), :id => 'next') unless @next_phrase.nil?

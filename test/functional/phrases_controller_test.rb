@@ -21,7 +21,7 @@ class PhrasesControllerTest < ActionController::TestCase
       post :create, phrase: @phrase.attributes
     end
 
-    assert_redirected_to phrase_path(assigns(:phrase))
+    assert_redirected_to phrases_path
   end
 
   test "should show phrase" do

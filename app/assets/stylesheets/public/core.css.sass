@@ -1,5 +1,18 @@
 @import partials/reset
 
+@mixin transition($property, $duration, $timing-function, $delay)
+  -webkit-transition: $property $duration $timing-function $delay
+  -moz-transition: $property $duration $timing-function
+  -o-transition: $property $duration $timing-function $delay
+  -ms-transition: $property $duration $timing-function $delay
+  transition: $property $duration $timing-function $delay
+
+html
+  background: #efefef
+  font-family: arial,helvetica,clean,sans-serif
+body
+  background: #efefef
+
 h1, h2, h3, h4, h5, h6
   font-weight: bold
 
@@ -17,9 +30,68 @@ table
 
   th
     font-weight: bold
-    
+
   tr, th, td
     padding: 3px
-  
-  
-// 
+
+footer
+  background: #000
+  color: #fff
+  margin-top: 40px
+  padding: 10px 10%
+  a
+    color: #fff
+    text-decoration: underline
+    &:hover
+      text-decoration: none
+    &:first-child
+      text-decoration: none
+
+.container
+  background: #fff
+  border: 2px solid #000
+  border-radius: 20px
+  box-shadow: 3px 3px 5px -2px #000
+  max-width: 240px
+  margin: 10px auto
+  padding: 40px 10px
+
+form
+  input
+    margin: 3px 0 12px
+
+dl#flash_card
+  font-size: 110%
+  text-align: center
+
+  dt
+    border-bottom: 1px solid #000
+    padding-bottom: 20px
+  dd
+    opacity: 0
+    padding-top: 20px
+    overflow: hidden
+    @include transition(opacity, 0.5s, ease-out, 0)
+  &.show-alternate
+    dd
+      opacity: 1
+      @include transition(opacity, 1s, ease-in, 0)
+
+p.previous,
+p.next
+  height: 40px
+  margin: 10px 0
+  a
+    background: #e8e8e8
+    border: 1px solid #000
+    border-radius: 2px
+    display: block
+    margin: 0 auto
+    padding: 10px 10px
+    text-align: center
+    width: 170px
+    &:hover
+      background: #fff
+      @include transition(all, 0.3s, ease-in, 0)
+
+  //

@@ -1,11 +1,13 @@
-= form_for @phrase do |f|
+= form_for @phrase, :html => { :class => 'container' } do |f|
   -if @phrase.errors.any?
     #error_explanation
       %h2= "#{pluralize(@phrase.errors.count, "error")} prohibited this phrase from being saved:"
       %ul
         - @phrase.errors.full_messages.each do |msg|
           %li= msg
+  = f.label :text, 'English'
   = f.text_field :text
+  = f.label :translation, 'Svenska'
   = f.text_field :translation
 
   .actions
