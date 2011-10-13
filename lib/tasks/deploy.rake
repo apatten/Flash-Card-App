@@ -1,10 +1,9 @@
 namespace :deploy do
 
   desc 'Deploy app to Heroku'
-  task :production => :environment do
+  task :production do
     puts "Precompiling Assets"
-
-    Rake::Task['assets:precompile']
+    Rake::Task['assets:precompile'].invoke(:RAILS_ENV => 'production', :RAILS_GROUPS => 'assets')
     `git add .`
     `git commit -m 'Precompile Assets'`
 
