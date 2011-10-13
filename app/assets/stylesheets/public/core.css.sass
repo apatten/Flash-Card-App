@@ -9,7 +9,7 @@
 
 html
   background: #efefef
-  font-family: arial,helvetica,clean,sans-serif
+  font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
 body
   background: #efefef
 
@@ -94,7 +94,7 @@ p.next
       background: #fff
       @include transition(all, 0.3s, ease-in, 0)
 
-@media (max-width: 480px)
+@media only screen and (max-width: 480px)
   body
     width: auto
     .container
