@@ -94,4 +94,13 @@ p.next
       background: #fff
       @include transition(all, 0.3s, ease-in, 0)
 
-  //
+@media screen and (max-width: 480px)
+  body
+    .container
+      max-width: 90%
+    p.previous,
+    p.next
+      a
+        width: 85%
+
+//
