@@ -5,10 +5,8 @@
       %ul
         - @phrase.errors.full_messages.each do |msg|
           %li= msg
-  = f.label :text, 'English'
-  = f.text_field :text
-  = f.label :translation, 'Svenska'
-  = f.text_field :translation
+  = f.text_field :text, :placeholder => 'English'
+  = f.text_field :translation, :placeholder => 'Svenska'
 
   .actions
     = f.submit 'Save'

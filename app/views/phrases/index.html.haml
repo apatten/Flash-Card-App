@@ -1,21 +1,24 @@
+= form_tag(new_phrase_path, :method => :get, :id => "new-phrase") do
+  %input{ :type => "submit", :value => "New Phrase" }
+
 %p#notice= notice
 
-%table
-  %tr
-    %th Text
-    %th Translation
-    %th
-    %th
-    %th
-
-  - @phrases.each do |phrase|
+%table.phrases
+  %colgroup
+    %col
+    %col
+    %col
+    %col#remove
+  %thead
     %tr
-      %td= phrase.text
-      %td= phrase.translation
-      %td= link_to 'Show', phrase
-      %td= link_to 'Edit', edit_phrase_path(phrase)
-      %td= link_to 'Destroy', phrase, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Phrase', new_phrase_path
+      %th Text
+      %th Translation
+      %th
+      %th
+  %tbody
+    - @phrases.each do |phrase|
+      %tr
+        %td= phrase.text
+        %td= link_to phrase.translation, flash_card_path(phrase)
+        %td= link_to 'Edit', edit_phrase_path(phrase)
+        %td= link_to '[&nbsp;X&nbsp;]'.html_safe, phrase, :confirm => 'Are you sure?', :method => :delete

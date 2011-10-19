@@ -7,6 +7,12 @@
   -ms-transition: $property $duration $timing-function $delay
   transition: $property $duration $timing-function $delay
 
+@mixin border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+/****** General Styles ******/
 html
   background: #efefef
   font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
@@ -25,15 +31,6 @@ h3
 h4
   font-size: 105%
 
-// legend, table, caption, tbody, tfoot, thead, tr, th, td
-table
-
-  th
-    font-weight: bold
-
-  tr, th, td
-    padding: 3px
-
 footer
   background: #000
   color: #fff
@@ -47,18 +44,44 @@ footer
     &:first-child
       text-decoration: none
 
+/****** Phrases Index ******/
+form#new-phrase input
+  display: block
+  font-size: 120%
+  margin: 10px auto
+
+p#notice
+  margin-bottom: 10px
+  text-align: center
+
+table.phrases
+  background: #f7f6f6
+  border-bottom: 1px solid #ccc
+  border-right: 1px solid #ccc
+  margin: 0 auto
+  caption:
+    text-align: center
+  th
+    background: #fff
+    font-weight: bold
+  col#remove
+    text-align: center
+    width: 40px
+  tr, th, td
+    border: 1px solid #ccc
+    border-bottom: none
+    border-right: none
+    padding: 6px
+
+/****** Flash Card Show ******/
 .container
   background: #fff
   border: 2px solid #000
-  border-radius: 20px
+  @include border-radius(20px)
   box-shadow: 3px 3px 5px -2px #000
   width: 240px
   margin: 10px auto
   padding: 40px 10px
-
-form
-  input
-    margin: 3px 0 12px
 
 dl#flash_card
   font-size: 110%
@@ -84,7 +107,7 @@ p.next
   a
     background: #4D90FE
     border: 1px solid #3079ED
-    border-radius: 3px
+    @include border-radius(3px)
     display: block
     margin: 0 auto
     padding: 10px 10px
@@ -97,6 +120,17 @@ p.next
       background: #4183f0
       @include transition(all, 0.3s, ease-in, 0)
 
+/****** New Phrase ******/
+form.container
+  label
+    display: block
+  input
+    font-size: 140%
+    margin: 3px 0 12px
+  input[type=text]
+    width: 90%
+
+/****** Smartphone Portrait ******/
 @media only screen and (max-width: 480px)
   body
     width: auto
