@@ -1,10 +1,11 @@
-= form_tag(new_phrase_path, :method => :get, :id => "new-phrase") do
+= form_tag(new_phrase_path, :method => :get, :id => "create") do
   %input{ :type => "submit", :value => "New Phrase" }
 
 %p#notice= notice
 
-%table.phrases
+%table.index
   %colgroup
+    %col
     %col
     %col
     %col
@@ -13,6 +14,7 @@
     %tr
       %th Text
       %th Translation
+      %th List
       %th
       %th
   %tbody
@@ -20,5 +22,6 @@
       %tr
         %td= phrase.text
         %td= link_to phrase.translation, flash_card_path(phrase)
+        %td= phrase.list.title
         %td= link_to 'Edit', edit_phrase_path(phrase)
         %td= link_to '[&nbsp;X&nbsp;]'.html_safe, phrase, :confirm => 'Are you sure?', :method => :delete

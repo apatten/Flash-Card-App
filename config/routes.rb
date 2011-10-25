@@ -1,5 +1,7 @@
 Language::Application.routes.draw do
 
+  resources :lists
+
   resources :phrases
   match 'flash_cards/:id' => 'flash_cards#show', :as => :flash_card
   match 'share' => 'flash_cards#share', :as => :share

@@ -1,0 +1,22 @@
+= form_tag(new_list_path, :method => :get, :id => "create") do
+  %input{ :type => "submit", :value => "New List" }
+
+%p#notice= notice
+
+%table.index
+  %colgroup
+    %col
+    %col
+    %col
+    %col#remove
+  %thead
+    %tr
+      %th Title
+      %th
+      %th
+  %tbody
+    - @lists.each do |list|
+      %tr
+        %td= link_to list.title, list
+        %td= link_to 'Edit', edit_list_path(list)
+        %td= link_to '[&nbsp;X&nbsp;]'.html_safe, list, :confirm => 'Are you sure?', :method => :delete

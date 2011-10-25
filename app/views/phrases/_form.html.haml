@@ -5,8 +5,8 @@
       %ul
         - @phrase.errors.full_messages.each do |msg|
           %li= msg
-  = f.text_field :text, :placeholder => 'English'
-  = f.text_field :translation, :placeholder => 'Svenska'
-
+  = f.text_field :text, :placeholder => 'Question'
+  = f.text_field :translation, :placeholder => 'Answer'
+  = f.select :list_id, List.all.collect {|l| [ l.title, l.id ] }
   .actions
     = f.submit 'Save'

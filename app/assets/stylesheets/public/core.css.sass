@@ -44,17 +44,18 @@ footer
     &:first-child
       text-decoration: none
 
-/****** Phrases Index ******/
-form#new-phrase input
-  display: block
-  font-size: 120%
+/****** Index ******/
+form#create
   margin: 10px auto
+  text-align: center
+  input
+    font-size: 120%
 
 p#notice
   margin-bottom: 10px
   text-align: center
 
-table.phrases
+table.index
   background: #f7f6f6
   border-bottom: 1px solid #ccc
   border-right: 1px solid #ccc
@@ -124,11 +125,15 @@ p.next
 form.container
   label
     display: block
-  input
+  input, select
     font-size: 140%
     margin: 3px 0 12px
-  input[type=text]
+  input[type=text], select
     width: 90%
+
+ul li
+  list-style: inside square
+  line-height: 1.2em
 
 /****** Smartphone Portrait ******/
 @media only screen and (max-width: 480px)

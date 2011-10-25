@@ -1,0 +1,7 @@
+%p#notice= notice
+
+.container
+  %h1= @list.title
+  %ul
+    -@list.phrases.each do |phrase|
+      %li= link_to phrase.text, flash_card_path(phrase)
