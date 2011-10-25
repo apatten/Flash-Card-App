@@ -20,7 +20,12 @@ end
 
 gem 'jquery-rails'
 
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+end
+
 group :test do
-  # Pretty printed test output
+  gem 'factory_girl_rails', '~> 1.0.1'
+  gem "shoulda-matchers"
   gem 'turn', :require => false
 end
