@@ -3,10 +3,7 @@ Simple app that was born out of my need for an easy way to remember and learn co
 
 == TODO
 
-* rename Phrase to FlashCard
-  * text => question
-  * translation => answer
 * add users and authentication
 * switch view/hide order
 * add mobile gestures support
-* remove unit test
+* add keyboard navigation for regular web

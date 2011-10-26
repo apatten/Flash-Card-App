@@ -1,0 +1,12 @@
+= form_for @flash_card, :html => { :class => 'container' } do |f|
+  -if @flash_card.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@flash_card.errors.count, "error")} prohibited this flash card from being saved:"
+      %ul
+        - @flash_card.errors.full_messages.each do |msg|
+          %li= msg
+  = f.text_field :question, :placeholder => 'Question'
+  = f.text_field :answer, :placeholder => 'Answer'
+  = f.select :list_id, List.all.collect {|l| [ l.title, l.id ] }
+  .actions
+    = f.submit 'Save'

@@ -84,6 +84,9 @@ table.index
   margin: 10px auto
   padding: 40px 10px
 
+  h1, h2
+    margin: -10px 0 10px 0
+
 dl#flash_card
   font-size: 110%
   text-align: center
@@ -92,11 +95,10 @@ dl#flash_card
     border-bottom: 1px solid #000
     padding-bottom: 20px
   dd
-    opacity: 0
     padding-top: 20px
+    opacity: 0
     overflow: hidden
-    @include transition(opacity, 0.5s, ease-out, 0)
-  &.show-alternate
+  &.show-answer
     dd
       opacity: 1
       @include transition(opacity, 1s, ease-in, 0)
@@ -132,8 +134,18 @@ form.container
     width: 90%
 
 ul li
-  list-style: inside square
-  line-height: 1.2em
+  a
+    background: #4D90FE
+    border-bottom: 1px solid #4183f0
+    border-top: 1px solid #8AB2f2
+    color: #fff
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1)
+    display: block
+    line-height: 1.2em
+    padding: 10px 10px
+    &:hover
+      background: #4183f0
+      @include transition(all, 0.3s, ease-in, 0)
 
 /****** Smartphone Portrait ******/
 @media only screen and (max-width: 480px)

@@ -3,5 +3,5 @@
 .container
   %h1= @list.title
   %ul
-    -@list.phrases.each do |phrase|
-      %li= link_to phrase.text, flash_card_path(phrase)
+    -@list.flash_cards.each do |flash_card|
+      %li= link_to flash_card.question, flash_card_path(flash_card)

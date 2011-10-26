@@ -1,11 +1,9 @@
 Language::Application.routes.draw do
 
+  resources :flash_cards
   resources :lists
-
-  resources :phrases
-  match 'flash_cards/:id' => 'flash_cards#show', :as => :flash_card
-  match 'share' => 'flash_cards#share', :as => :share
-  root :to => 'flash_cards#index'
+  match 'share' => 'pages#share', :as => :share
+  root :to => 'pages#index'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

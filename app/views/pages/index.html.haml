@@ -1,0 +1,5 @@
+.container
+  %h2 Choose a List
+  %ul
+    - @lists.each do |list|
+      %li= link_to list.title, list.flash_cards.order("created_at DESC").first

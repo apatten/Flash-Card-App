@@ -1,0 +1,27 @@
+= form_tag(new_flash_card_path, :method => :get, :id => "create") do
+  %input{ :type => "submit", :value => "New Phrase" }
+
+%p#notice= notice
+
+%table.index
+  %colgroup
+    %col
+    %col
+    %col
+    %col
+    %col#remove
+  %thead
+    %tr
+      %th Question
+      %th Answer
+      %th List
+      %th
+      %th
+  %tbody
+    - @flash_cards.each do |flash_card|
+      %tr
+        %td= flash_card.question
+        %td= link_to flash_card.answer, flash_card_path(flash_card)
+        %td= flash_card.list.nil? ? 'None' : flash_card.list.title
+        %td= link_to 'Edit', edit_flash_card_path(flash_card)
+        %td= link_to '[&nbsp;X&nbsp;]'.html_safe, flash_card, :confirm => 'Are you sure?', :method => :delete
