@@ -5,6 +5,8 @@ class FlashCardsController < ApplicationController
 
   def show
     @flash_card = FlashCard.find(params[:id])
+    @flash_cards = FlashCard.where("list_id = ?", @flash_card.list).order("created_at DESC")
+
     @previous_flash_card = FlashCard.where("created_at > ? AND list_id = ?", @flash_card.created_at, @flash_card.list).order("created_at ASC").first
     @next_flash_card = FlashCard.where("created_at < ? AND list_id = ?", @flash_card.created_at, @flash_card.list).order("created_at DESC").first
   end

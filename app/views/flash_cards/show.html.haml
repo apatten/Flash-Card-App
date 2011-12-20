@@ -5,3 +5,9 @@
   %dd= @flash_card.answer
 
 %p.next= link_to('Next', flash_card_path(@next_flash_card), :id => 'next') unless @next_flash_card.nil?
+
+- content_for(:footer) do
+  :javascript
+    $(document).ready(function () {
+      FlashCards.init(#{@flash_cards.to_json}, #{@flash_card.id});
+    });
