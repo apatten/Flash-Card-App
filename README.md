@@ -4,6 +4,5 @@ Simple app that was born out of my need for an easy way to remember and learn co
 ## TODO
 
 * add users and authentication
-* switch view/hide order
 * add mobile gestures support
 * add keyboard navigation for regular web

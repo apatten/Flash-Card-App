@@ -26,13 +26,18 @@ FlashCards = function() {
       _current_id;
 
   var nextElm,
-      previousElm;
+      previousElm,
+      questionElm,
+      answerElm;
 
   function initialize(flash_cards, current_id) {
     _flash_cards = $(flash_cards);
     _current_id = current_id;
     previousElm = $('p.previous').first();
     nextElm = $('p.next').first();
+    questionElm = $('dl#flash_card dt');
+    answerElm = $('dl#flash_card dd');
+    drawToggle();
     update();
   }
 
@@ -78,16 +83,33 @@ FlashCards = function() {
 
   function updateCard(card) {
     $('dl#flash_card').removeClass('show-answer');
-    $('dl#flash_card dt').text(card['question']);
-    $('dl#flash_card dd').text(card['answer']);
+    questionElm.text(card['question']);
+    answerElm.text(card['answer']);
     _current_id = card['id'];
     update();
+  }
+
+  function swapShowHide() {
+    var tmp = answerElm;
+    answerElm = questionElm;
+    questionElm = tmp;
+    updateCard(_current);
+  }
+
+  function drawToggle() {
+    var toggleLink = $('<a id="toggle" href="#toggle">Toggle View</a>');
+    toggleLink.click(function(e) {
+      e.preventDefault();
+      swapShowHide();
+    });
+    $('footer').append(toggleLink);
   }
 
   return {
     init: function(flash_cards, current_id) {
       initialize(flash_cards, current_id);
-    }
+    },
+    toggleView: function() { swapShowHide(); }
   };
 }();
 
